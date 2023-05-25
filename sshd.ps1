@@ -4,7 +4,6 @@ Start-Service sshd
 Get-Service sshd
 Set-Service -Name sshd -StartupType 'Automatic'
 
-echo "> allow root login? ... add the following configs:"
-echo "PermitRootLogin no"
-echo "MaxAuthTries 20"
-start-process notepad C:\Programdata\ssh\sshd_config
+echo "Fixing Linux_Remote login issue:"
+echo MaxAuthTries 20 >> C:\ProgramData\ssh\sshd_config
+Restart-Service sshd

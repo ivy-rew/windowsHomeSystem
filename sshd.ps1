@@ -5,5 +5,5 @@ Get-Service sshd
 Set-Service -Name sshd -StartupType 'Automatic'
 
 echo "Fixing Linux_Remote login issue:"
-echo MaxAuthTries 20 >> C:\ProgramData\ssh\sshd_config
+echo "MaxAuthTries 20" | Add-Content -Path C:\ProgramData\ssh\sshd_config
 Restart-Service sshd
